@@ -5,6 +5,8 @@ import { customEase, childFadeUp, staggerContainer } from '../utils/animations';
 const Spline = React.lazy(() => import('@splinetool/react-spline'));
 
 const Hero = ({ setIsAppLoaded }) => {
+
+
   const splineWrapperRef = useRef(null);
   const scrollTimeout = useRef(null);
 
@@ -73,7 +75,10 @@ const Hero = ({ setIsAppLoaded }) => {
         {/* Right 3D Object */}
         <div 
           ref={splineWrapperRef}
-          className="h-[50vh] md:h-[90vh] w-full relative flex items-center justify-center optimize-gpu ml-6 md:ml-10"
+          className="h-[50vh] md:h-[90vh] w-full relative flex items-center justify-center optimize-gpu translate-x-4 md:translate-x-8"
+          onPointerDownCapture={(e) => e.stopPropagation()}
+          onMouseDownCapture={(e) => e.stopPropagation()}
+          onTouchStartCapture={(e) => e.stopPropagation()}
         >
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
@@ -84,7 +89,7 @@ const Hero = ({ setIsAppLoaded }) => {
             <Suspense fallback={null}>
               <Spline 
                 // IMPORTANT: Replace this URL with your custom Splinecode EXPORT URL once remixed.
-                scene="https://prod.spline.design/zuQVXKhOmonjaE7m/scene.splinecode" 
+                scene="https://prod.spline.design/oyiZsEsvlREJ4R65/scene.splinecode" 
                 onLoad={() => setIsAppLoaded(true)}
               />
             </Suspense>
