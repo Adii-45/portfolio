@@ -63,3 +63,60 @@ html.lenis, html.lenis body {
   position: fixed;
   inset: 0;
 }
+
+/* ===== Project Card Floating & Depth ===== */
+
+/* Idle floating animation — subtle and non-distracting */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Float wrapper — isolates CSS animation from Framer Motion transforms */
+.project-card-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Depth shadows on the inner card */
+.project-card-inner {
+  box-shadow:
+    0 8px 32px -8px rgba(0, 0, 0, 0.5),
+    0 24px 60px -16px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Stagger float animation per card */
+.group:nth-child(1) .project-card-float { animation-delay: 0s; }
+.group:nth-child(2) .project-card-float { animation-delay: 1.5s; }
+.group:nth-child(3) .project-card-float { animation-delay: 3s; }
+.group:nth-child(4) .project-card-float { animation-delay: 4.5s; }
+
+/* Pause float on hover + enhanced shadows */
+.group:hover .project-card-float {
+  animation-play-state: paused;
+}
+
+.group:hover .project-card-inner {
+  box-shadow:
+    0 16px 48px -8px rgba(0, 0, 0, 0.6),
+    0 32px 80px -16px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* Smooth backdrop-blur transition */
+.group .backdrop-blur-0 {
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+}
+
+.group:hover .group-hover\:backdrop-blur-sm {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .project-card-float {
+    animation: none;
+  }
+}

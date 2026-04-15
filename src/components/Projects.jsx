@@ -6,33 +6,50 @@ import { customEase } from '../utils/animations';
 const projectsData = [
   {
     id: 1,
-    title: 'Aura',
-    category: 'E-Commerce / WebGL',
+    title: 'Nodus',
+    category: 'Fintech / Web App',
     year: '2025',
+    description: 'AI-powered finance management platform',
+    link: 'https://www.figma.com/design/HC4O8mJPvfSV0dfky7L1sI/NODUS',
+    gradient: 'from-emerald-900/40 via-teal-950/30 to-neutral-950',
+    accentColor: 'rgba(52, 211, 153, 0.15)',
   },
   {
     id: 2,
-    title: 'Nexus',
-    category: 'Fintech / App',
-    year: '2024',
+    title: 'Shift',
+    category: 'Productivity / Mobile App',
+    year: '2025',
+    description: 'Multi-persona productivity companion',
+    link: 'https://www.figma.com/design/19UQ9xSsh0WWUYExsLw5Y1/SHIFT',
+    gradient: 'from-violet-900/40 via-purple-950/30 to-neutral-950',
+    accentColor: 'rgba(139, 92, 246, 0.15)',
   },
   {
     id: 3,
-    title: 'Quantum',
-    category: 'SaaS / Marketing',
+    title: 'BUI Food',
+    category: 'E-Commerce / Mobile App',
     year: '2024',
+    description: 'Fresh grocery delivery experience',
+    link: 'https://www.figma.com/design/RoDZDAJG7r07iEkHEDaoon/BUI-Food',
+    gradient: 'from-orange-900/40 via-amber-950/30 to-neutral-950',
+    accentColor: 'rgba(251, 146, 60, 0.15)',
   },
   {
     id: 4,
-    title: 'Horizon',
-    category: 'Web3 / Identity',
-    year: '2023',
+    title: 'VELA',
+    category: 'Wellness / Web App',
+    year: '2025',
+    description: 'Habit & mood tracking dashboard',
+    link: null,
+    comingSoon: true,
+    gradient: 'from-sky-900/40 via-blue-950/30 to-neutral-950',
+    accentColor: 'rgba(56, 189, 248, 0.15)',
   }
 ];
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-40 bg-black text-white rounded-t-[4rem] -mt-16 relative z-20">
+    <section id="projects" className="py-40 bg-[#0B0F14] text-white rounded-t-[4rem] -mt-16 relative z-20">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row justify-between items-end mb-24 optimize-gpu">
           <motion.h2 
@@ -56,6 +73,15 @@ const Projects = () => {
             View Archive
           </motion.a>
         </div>
+
+        {/* Subtle divider */}
+        <motion.div 
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: false, margin: "-50px" }}
+          transition={{ duration: 1.4, ease: customEase }}
+          className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent mb-20 origin-left"
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
           {projectsData.map((project, index) => (
